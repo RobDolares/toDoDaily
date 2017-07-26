@@ -9,28 +9,35 @@
 
 <body>
   <header>
-    <h1>ToDo List</h1>
+
   </header>
 
   <main>
 
     <div class="todoList">
+      <h1>ToDo List</h1>
       <form class="todoForm" action="/todos" method="post">
         <input type="text" name="todo" value="todo">
         <button>Add Todo</button>
       </form>
-    </div>
-
-    <div class="completedList">
       <ul>
         {{#todos}}
-          <form class="completed" action="/completed" method="post">
-            <button type="button" name="button">Mark Complete</button>
+          <li>{{.}}</li><form class="completed" action="/completed" method="post">
+            <input name="{{.}}" value="">
+            <button type="button">Mark Complete</button>
           </form>
-          <li>{{.}}</li>
         {{/todos}}
       </ul>
     </div>
+
+    <div class="completedList">
+      <h2>Completed ToDos</h2>
+      <ul>
+        {{#completed}}
+        <li>{{.}}</li>
+        {{/completed}}
+      </ul>
+    </div
 
   </main>
 

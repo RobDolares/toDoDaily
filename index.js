@@ -23,11 +23,11 @@ const todos = [
   "wash the car"
 ];
 
-app.get("/", function (req, res) {
-  res.render('todos', { todos: todos });
+app.get("/", function(req, res) {
+  res.render('todos', {todos: todos});
 });
 
-app.post("/todos", function (req, res) {
+app.post("/todos", function(req, res) {
   todos.push(req.body.todo);
   res.redirect('/');
 })
@@ -35,25 +35,23 @@ app.post("/todos", function (req, res) {
 // Completed tasks list
 
 const completed = [
-    todos
+""
 ];
 
-app.get("/", function (req, res) {
-  res.render('todos', { todos:todos });
+app.get("/", function(req, res) {
+  res.render('todos', {completed: completed});
 });
 
-app.post("/completed", function (req, res) {
-  completed.push(req.body.todo);
-  res.redirect('/');
+app.post("/completed", function(req, res) {
+  for (var i = 0; i < todos.length; i++) {
+    if (req.body.completed === todos[i]) {
+      completed.push(todos[i]);
+      todos.splice(i, 1);
+      res.redirect('/');
+      console.log(completed);
+    }
+  }
 })
-
-
-
-// for (var i = 0; i < todos.length; i++) {
-//   if (req.body) {
-//
-//   }
-// }
 
 
 
@@ -61,15 +59,3 @@ app.post("/completed", function (req, res) {
 app.listen(3000, function() {
   console.log('successfully began program');
 })
-
-
-
-
-
-
-
-
-
-
-//
-// res.render(todos, {key:value})
