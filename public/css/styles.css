@@ -1,10 +1,38 @@
 
+html {
+  font-family: helvetica, arial, sans-serif;
+}
+
 main {
   margin: 0 10%;
 }
 
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 
-.todolist {
+.toDoList {
+  width: 100%;
+  margin: 0 auto;
 
+}
+
+.toDoList {
+  border: none;
+}
+
+.activeListItem {
+ border: none;
+}
+
+.activeTodos{
+  display: flex;
+  justify-content: center;
+}
+
+.markComplete {
+  width: 100px;
 }

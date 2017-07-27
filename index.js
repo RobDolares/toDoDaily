@@ -14,17 +14,19 @@ app.use(express.static('public'));
 
 // Set app to use bodyParser()` middleware.
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 
 // Initial list
 
-const todos = [
-  "wash the car"
-];
+const todos = ["Example: Wash the car"];
 
 app.get("/", function(req, res) {
-  res.render('todos', {todos: todos});
+  res.render('todos', {
+    todos: todos
+  });
 });
 
 app.post("/todos", function(req, res) {
@@ -34,25 +36,23 @@ app.post("/todos", function(req, res) {
 
 // Completed tasks list
 
-const completed = [
-""
-];
+const completed = [];
 
 app.get("/", function(req, res) {
-  res.render('todos', {completed: completed});
+  res.render('todos', {
+    completed: completed
+  });
 });
 
 app.post("/completed", function(req, res) {
   for (var i = 0; i < todos.length; i++) {
     if (req.body.completed === todos[i]) {
-      completed.push(todos[i]);
+      completed.push(todos[i])
       todos.splice(i, 1);
-      res.redirect('/');
-      console.log(completed);
     }
   }
+  res.redirect('/');
 })
-
 
 
 
