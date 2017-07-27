@@ -8,31 +8,74 @@ main {
 }
 
 .wrapper {
+  margin:0 10%;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
+#headerInput {
+  flex: 1 0 100%;
+}
 
-.toDoList {
+h1 {
   width: 100%;
-  margin: 0 auto;
+  font-size: 3em;
+}
 
+h2 {
+  width: 50%;
+  text-align: left;
+  white-space: nowrap;
 }
 
 .toDoList {
-  border: none;
+  flex: 60%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.todoForm{
+    display: flex;
+    justify-content: center;
+}
+
+#todoInput {
+  width: 60%;
+  padding-left: 10px;
+  height: 30px;
+  font-size: 1.5em;
+  border-bottom: 2px solid rgba(0.0.0.0.5);
 }
 
 .activeListItem {
- border: none;
+  font-size: 1em;
+  padding-left: 30px;
+  border: none;
 }
 
-.activeTodos{
-  display: flex;
-  justify-content: center;
+#activeTodos li {
+  text-decoration: none;
 }
 
-.markComplete {
+
+.markCompleteButton {
   width: 100px;
+  border-radius: 10px;
+  color: white;
+  font-size: 1em;
+  background-color: rgba(0,0,0,0.3);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin:5px;
+  list-style-type: none;
+  padding:0;
+  text-decoration: line-through;
 }

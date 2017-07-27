@@ -21,11 +21,11 @@ app.use(bodyParser.urlencoded({
 
 // Initial list
 
-const todos = ["Example: Wash the car"];
+const todos = [];
 
 app.get("/", function(req, res) {
   res.render('todos', {
-    todos: todos
+    todos: todos, completed: completed
   });
 });
 
@@ -38,12 +38,14 @@ app.post("/todos", function(req, res) {
 
 const completed = [];
 
-app.get("/", function(req, res) {
-  res.render('todos', {
-    completed: completed
-  });
-});
 
+// app.get("/", function(req, res) {
+//   res.render('todos', {
+//     completed: completed
+//   });
+// });
+
+//Loop to compare clicked todo with value in array then splice from todos to completed.
 app.post("/completed", function(req, res) {
   for (var i = 0; i < todos.length; i++) {
     if (req.body.completed === todos[i]) {
